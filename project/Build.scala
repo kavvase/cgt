@@ -21,6 +21,7 @@ object Build extends Build {
 
   lazy val `benchmark` = Project("benchmark", file("benchmark"))
     .settings(basicSettings: _*)
+    .settings(libraryDependencies ++= compile(caliper, jerseyCore))
     .dependsOn(`core`)
 
   lazy val `core` = Project("core", file("core"))

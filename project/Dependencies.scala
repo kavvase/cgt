@@ -8,7 +8,9 @@ object Dependencies {
   def provided  (deps: ModuleID*): Seq[ModuleID] = deps map (_ % "provided")
   def test      (deps: ModuleID*): Seq[ModuleID] = deps map (_ % "test")
 
-  val scalazCore      = "org.scalaz"     %% "scalaz-core"       % "7.1.0"
-  val specs2          = "org.specs2"     %% "specs2"            % "2.4"
+  val caliper    = "com.google.caliper"  % "caliper"     % "1.0-beta-1"
+  val jerseyCore = "com.sun.jersey"      % "jersey-core" % "1.11"
+  val scalazCore = "org.scalaz"         %% "scalaz-core" % "7.1.0"
+  val specs2     = "org.specs2"         %% "specs2"      % "2.4"
 
 }

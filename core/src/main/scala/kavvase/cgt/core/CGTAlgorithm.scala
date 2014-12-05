@@ -19,3 +19,13 @@ object CGTAlgorithm {
   implicit def prRandomAlgorithm[A]: PrRandomAlgorithm[A] = new PrRandomAlgorithm[A]
 
 }
+
+trait CGTAlgorithmSyntax {
+
+  implicit class CGTAlgorithmOpx[A <: CGT](cgt: A)(implicit algorithm: CGTAlgorithm[A]) {
+
+    def run: A#Result = algorithm.execute(cgt)
+
+  }
+
+}
