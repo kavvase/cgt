@@ -24,15 +24,13 @@ case class SLP[A](x: A)
 
 object SLP {
 
-  implicit def SLPGroup[A : Group]: Group[SLP[A]] = new Group[SLP[A]] {
+  implicit def SLPGroup[A : Group](implicit group: Group[A]): Group[SLP[A]] = new Group[SLP[A]] {
 
-    val group = implicitly[Group[A]]
+    def inverse(a: SLP[A]): SLP[A] = SLP(group.inverse(a.x))
 
-    override def inverse(a: SLP[A]): SLP[A] = SLP(group.inverse(a.x))
+    def zero: SLP[A] = SLP(group.zero)
 
-    override def zero: SLP[A] = SLP(group.zero)
-
-    override def append(f1: SLP[A], f2: => SLP[A]): SLP[A] = SLP(group.append(f1.x, f2.x))
+    def append(f1: SLP[A], f2: => SLP[A]): SLP[A] = SLP(group.append(f1.x, f2.x))
 
   }
 
