@@ -1,6 +1,6 @@
 package kavvase.cgt.core
 
-import kavvase.cgt.core.algorithm.{PrRandomAlgorithm, PrInitializeAlgorithm, RandomAlgorithm, AppendAlgorithm}
+import kavvase.cgt.core.algorithm.{PrInitializeAlgorithm, PrRandomAlgorithm, AppendAlgorithm, RandomAlgorithm}
 
 trait CGTAlgorithm[A <: CGT] {
 

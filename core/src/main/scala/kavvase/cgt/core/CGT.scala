@@ -3,24 +3,24 @@ package kavvase.cgt.core
 sealed trait CGT { type Result }
 
 case class Append[A](
-  l: List[A],
+  l: Vector[A],
   x: A
-) extends CGT { type Result = List[A] }
+) extends CGT { type Result = Vector[A] }
 
 case class Random(
-  l: List[Int]
+  l: Vector[Int]
 ) extends CGT { type Result = Int }
 
 case class PrInitialize[A](
-  genSetX: List[A],
+  genSetX: Vector[A],
   r: Int,
   n: Int
-) extends CGT { type Result = (List[A], List[A]) }
+) extends CGT { type Result = (Vector[A], Vector[SLP[A]]) }
 
 case class PrRandom[A](
-  listX: List[A],
-  listW: List[A]
-) extends CGT { type Result = (A, A) }
+  listX: Vector[A],
+  listW: Vector[SLP[A]]
+) extends CGT { type Result = (Vector[A], Vector[SLP[A]]) }
 
 case class Power()
   extends CGT
