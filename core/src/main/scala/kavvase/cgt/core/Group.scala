@@ -6,7 +6,10 @@ trait Group[A] extends Monoid[A] {
 
   def inverse(a: A): A
 
-  def power(a: A, n: Int): A = List.fill(n)(a).foldLeft(zero)(append(_, _))
+  def power(a: A, n: Int): A = {
+    if (n >= 0) List.fill(n)(a).foldLeft(zero)(append(_, _))
+    else List.fill(-n)(inverse(a)).foldLeft(zero)(append(_, _))
+  }
 
   trait GroupLaw extends MonoidLaw {
     def leftInverse(a: A)(implicit e: Equal[A]) = e.equal(append(inverse(a), a), zero)
@@ -40,6 +43,8 @@ trait GroupSyntax {
   implicit class GroupOps[A](a: A)(implicit group: Group[A]) {
 
     def inverse: A = group.inverse(a)
+
+    def power(n: Int): A = group.power(a, n)
 
   }
 
