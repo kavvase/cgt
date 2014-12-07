@@ -26,6 +26,6 @@ object Build extends Build {
 
   lazy val `core` = Project("core", file("core"))
     .settings(basicSettings: _*)
-    .settings(libraryDependencies ++= compile(scalazCore) ++ test(specs2))
+    .settings(libraryDependencies ++= compile(scalazCore) ++ test(scalazScalacheck, scalazSpecs2, specs2))
 
 }
