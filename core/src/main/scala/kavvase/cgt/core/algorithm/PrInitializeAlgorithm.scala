@@ -21,9 +21,10 @@ class PrInitializeAlgorithm[A >: G : Group, G](implicit group: Group[A], prRando
 
   @tailrec
   private def loopRandom(listX: Vector[A], listW: Vector[SLP[A]], n: Int): (Vector[A], Vector[SLP[A]]) = {
-    val (x, w) = prRandom.execute(PrRandom(listX, listW))
-    if (n > 0) loopRandom(x, w, n - 1)
-    else (x, w)
+    if (n > 0) {
+      val (x, w) = prRandom.execute(PrRandom(listX, listW))
+      loopRandom(x, w, n - 1)
+    } else (listX, listW)
   }
 
 }
