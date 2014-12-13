@@ -1,6 +1,6 @@
 package kavvase.cgt.core
 
-import kavvase.cgt.core.algorithm.{PrInitializeAlgorithm, PrRandomAlgorithm, AppendAlgorithm, RandomAlgorithm}
+import kavvase.cgt.core.algorithm._
 
 trait CGTAlgorithm[A <: CGT] {
 
@@ -17,6 +17,8 @@ object CGTAlgorithm {
   implicit def prInitializeAlgorithm[A >: G : Group, G]: PrInitializeAlgorithm[A, G] = new PrInitializeAlgorithm[A, G]
 
   implicit def prRandomAlgorithm[A >: G : Group, G]: PrRandomAlgorithm[A, G] = new PrRandomAlgorithm[A, G]
+
+  implicit def powerAlgorithm[A >: G : Group, G]: PowerAlgorithm[A, G] = new PowerAlgorithm[A, G]
 
 }
 

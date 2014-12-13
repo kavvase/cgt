@@ -22,8 +22,10 @@ case class PrRandom[A](
   listW: Vector[SLP[A]]
 ) extends CGT { type Result = (Vector[A], Vector[SLP[A]]) }
 
-case class Power()
-  extends CGT
+case class Power[A](
+  g: A,
+  n: Int
+) extends CGT { type Result = A }
 
 case class OrderBounded()
   extends CGT
