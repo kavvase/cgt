@@ -5,10 +5,9 @@ import org.scalacheck.{Arbitrary, Prop, Properties}
 import org.specs2.scalaz.Spec
 
 import scalaz.Equal
-import scalaz.Scalaz._
 import scalaz.scalacheck.ScalazProperties.monoid
 
-class GroupCheck extends Spec {
+trait GroupCheck extends Spec {
 
   object group {
 
@@ -32,7 +31,5 @@ class GroupCheck extends Spec {
     }
 
   }
-
-  checkAll(group.laws[Int])
 
 }
