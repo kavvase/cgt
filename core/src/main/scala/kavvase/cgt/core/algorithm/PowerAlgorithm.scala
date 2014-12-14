@@ -2,6 +2,8 @@ package kavvase.cgt.core.algorithm
 
 import kavvase.cgt.core.{CGTAlgorithm, Group, Power}
 
+import scala.annotation.tailrec
+
 class PowerAlgorithm[A >: G : Group, G](implicit group: Group[A])
   extends CGTAlgorithm[Power[A]] {
 
@@ -13,6 +15,7 @@ class PowerAlgorithm[A >: G : Group, G](implicit group: Group[A])
     loopPower(x, cgt.g, cgt.n)
   }
 
+  @tailrec
   private def loopPower(x: A, g: A, n: Int): A = {
     if (n > 1) {
       val g1 = group.power(g, 2)

@@ -20,6 +20,10 @@ object CGTAlgorithm {
 
   implicit def powerAlgorithm[A >: G : Group, G]: PowerAlgorithm[A, G] = new PowerAlgorithm[A, G]
 
+  implicit def primeDivisorAlgorithm: PrimeDivisorsAlgorithm = new PrimeDivisorsAlgorithm
+
+  implicit def orderBoundedAlgorithm[A >: G : Group, G]: OrderBoundedAlgorithm[A, G] = new OrderBoundedAlgorithm[A, G]
+
 }
 
 trait CGTAlgorithmSyntax {

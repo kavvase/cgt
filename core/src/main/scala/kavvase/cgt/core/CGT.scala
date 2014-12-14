@@ -27,8 +27,14 @@ case class Power[A](
   n: Int
 ) extends CGT { type Result = A }
 
-case class OrderBounded()
-  extends CGT
+case class PrimeDivisors(
+  n: Int
+) extends CGT { type Result = List[Int] }
+
+case class OrderBounded[A](
+  g: A,
+  n: Int
+) extends CGT { type Result = Int }
 
 case class NormalClosure()
   extends CGT
