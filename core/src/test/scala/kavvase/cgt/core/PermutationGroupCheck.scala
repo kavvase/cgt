@@ -11,6 +11,6 @@ class PermutationGroupCheck extends GroupCheck {
     } yield Permutation(Map(x -> y, y -> x))
   }
 
-  checkAll(group.laws[Permutation])
+  checkAll(group.laws[Permutation[Int]])
 
 }

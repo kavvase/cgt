@@ -10,7 +10,7 @@ class PrInitializeSpec extends Specification {
     import kavvase.cgt.core.cgt._
 
     "execute initialization for product replacement algorithm" in {
-      val p0 = Permutation.PermutationGroup.zero
+      val p0 = Permutation.PermutationGroup.zero : Permutation[Int]
       val p1 = Permutation(Map(1 -> 2, 2 -> 1))
       val p2 = Permutation(Map(2 -> 3, 3 -> 2))
       val p3 = Permutation(Map(3 -> 1, 1 -> 3))
