@@ -39,8 +39,8 @@ object Permutation {
     def append(f1: Permutation[A], f2: => Permutation[A]): Permutation[A] = reduce(
       (for {
         key <- f1.cycle.keySet union f2.cycle.keySet
-        image = f2.cycle.getOrElse(key, key)
-        value = f1.cycle.getOrElse(image, image)
+        image = f2.act(key)
+        value = f1.act(image)
       } yield (key, value)).toMap
     )
 
