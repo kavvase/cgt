@@ -2,7 +2,7 @@ package kavvase.cgt.core.algorithm
 
 import kavvase.cgt.core._
 
-class PrRandomAlgorithm[A >: G : Group, G](implicit group: Group[A], grSlp: Group[SLP[A]], random: RandomAlgorithm)
+class PrRandomAlgorithm[A](implicit group: Group[A], grSlp: Group[SLP[A]], random: RandomAlgorithm)
   extends CGTAlgorithm[PrRandom[A]] {
 
   def execute(cgt: PrRandom[A]): (Vector[A], Vector[SLP[A]]) = {

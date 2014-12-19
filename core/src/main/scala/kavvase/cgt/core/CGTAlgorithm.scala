@@ -14,15 +14,15 @@ object CGTAlgorithm {
 
   implicit def randomAlgorithm: RandomAlgorithm = new RandomAlgorithm
 
-  implicit def prInitializeAlgorithm[A >: G : Group, G]: PrInitializeAlgorithm[A, G] = new PrInitializeAlgorithm[A, G]
+  implicit def prInitializeAlgorithm[A](implicit g: Group[A]): PrInitializeAlgorithm[A] = new PrInitializeAlgorithm[A]
 
-  implicit def prRandomAlgorithm[A >: G : Group, G]: PrRandomAlgorithm[A, G] = new PrRandomAlgorithm[A, G]
+  implicit def prRandomAlgorithm[A](implicit g: Group[A]): PrRandomAlgorithm[A] = new PrRandomAlgorithm[A]
 
-  implicit def powerAlgorithm[A >: G : Group, G]: PowerAlgorithm[A, G] = new PowerAlgorithm[A, G]
+  implicit def powerAlgorithm[A](implicit g: Group[A]): PowerAlgorithm[A] = new PowerAlgorithm[A]
 
   implicit def primeDivisorAlgorithm: PrimeDivisorsAlgorithm = new PrimeDivisorsAlgorithm
 
-  implicit def orderBoundedAlgorithm[A >: G : Group, G]: OrderBoundedAlgorithm[A, G] = new OrderBoundedAlgorithm[A, G]
+  implicit def orderBoundedAlgorithm[A](implicit g: Group[A]): OrderBoundedAlgorithm[A] = new OrderBoundedAlgorithm[A]
 
 }
 

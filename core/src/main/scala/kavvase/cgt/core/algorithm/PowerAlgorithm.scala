@@ -4,7 +4,7 @@ import kavvase.cgt.core.{CGTAlgorithm, Group, Power}
 
 import scala.annotation.tailrec
 
-class PowerAlgorithm[A >: G : Group, G](implicit group: Group[A])
+class PowerAlgorithm[A](implicit group: Group[A])
   extends CGTAlgorithm[Power[A]] {
 
   def execute(cgt: Power[A]): A = {

@@ -4,10 +4,10 @@ import kavvase.cgt.core._
 
 import scala.annotation.tailrec
 
-class OrderBoundedAlgorithm[A >: G : Group, G](implicit
-                                               group: Group[A],
-                                               primeDivisors: PrimeDivisorsAlgorithm,
-                                               power: PowerAlgorithm[A, G])
+class OrderBoundedAlgorithm[A](implicit
+                               group: Group[A],
+                               primeDivisors: PrimeDivisorsAlgorithm,
+                               power: PowerAlgorithm[A])
   extends CGTAlgorithm[OrderBounded[A]] {
 
   def execute(cgt: OrderBounded[A]): Int = {

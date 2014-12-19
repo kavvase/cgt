@@ -4,7 +4,7 @@ import kavvase.cgt.core._
 
 import scala.annotation.tailrec
 
-class PrInitializeAlgorithm[A >: G : Group, G](implicit group: Group[A], prRandom: PrRandomAlgorithm[A, G])
+class PrInitializeAlgorithm[A](implicit group: Group[A], prRandom: PrRandomAlgorithm[A])
   extends CGTAlgorithm[PrInitialize[A]] {
 
   def execute(cgt: PrInitialize[A]): (Vector[A], Vector[SLP[A]]) = {
